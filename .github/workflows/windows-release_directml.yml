@@ -93,7 +93,7 @@ jobs:
           "zip_name=$name" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
       - name: Attach to the release
-        if: ${{ inputs.ref == '' }}
+        if: ${{ inputs.tag != '' && inputs.ref == '' }}
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
